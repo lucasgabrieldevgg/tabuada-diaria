@@ -15,9 +15,3 @@
 ## 📦 Run locally
 
 Just open `index.html` in a browser, or serve it with any static server.
-
----
-
-# 🇧🇷 Português
-
-Tabuada Diária — estude e domine a multiplicação. Trainer de tabuada em um único arquivo HTML, sem dependências, funciona offline. Demo: https://tabuada-diaria.vercel.app
