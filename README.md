@@ -3,7 +3,7 @@
 [![testes](https://github.com/lucasgabrieldevgg/tabuada-diaria/actions/workflows/ci.yml/badge.svg)](https://github.com/lucasgabrieldevgg/tabuada-diaria/actions/workflows/ci.yml)
 
 **## 🌐 Teste agora
-**https://tabuada-diaria.vercel.app** — grátis, sem conta, funciona offline. Tudo fica salvo no teu navegador.**
+**https://lucasgabrieldevgg.github.io/tabuada-diaria/** — grátis, sem conta, funciona offline. Tudo fica salvo no teu navegador.**
 
 > Um caderno de matemática que estuda com você todo dia: as 36 multiplicações (do 2×2 ao 9×9), flashcards que insistem nas que você erra, quiz com sistema de domínio ⭐, desafio contra o relógio e um plano de 7 dias — com os macetes de professora marcados a amarelo.
 
