@@ -1,0 +1,20 @@
+{
+  "name": "tabuada-diaria",
+  "version": "1.1.0",
+  "description": "Caderno de tabuada diário — single-file, offline, com quiz, flashcards, desafio 60s e plano de 7 dias",
+  "main": "index.html",
+  "scripts": {
+    "test": "node tests/tabuada_test.cjs",
+    "serve": "python3 -m http.server 8080"
+  },
+  "devDependencies": {
+    "jsdom": "^24.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucasgabrieldevgg/tabuada-diaria.git"
+  },
+  "keywords": ["tabuada", "multiplication", "education", "quiz", "flashcards", "offline"],
+  "author": "lucasgabrieldevgg",
+  "license": "MIT"
+}
