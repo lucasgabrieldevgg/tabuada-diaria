@@ -202,7 +202,7 @@
 <!-- ============ TABELA ============ -->
 <section id="tabela" class="show">
   <h2>📋 As 36 multiplicações</h2>
-  <p class="sub">Clique em um card para esconder/mostrar a resposta e treinar a memória. As bolinhas verdes mostram seu domínio (acertos no quiz).</p>
+  <p class="sub">As respostas começam escondidas — clique no card para conferir e treinar a memória. As bolinhas verdes mostram seu domínio (acertos no quiz).</p>
   <div class="toggle-row">
     <button class="btn" id="btnHideAll">🙈 Esconder todas as respostas</button>
     <button class="btn" id="btnShowAll">👀 Mostrar todas</button>
@@ -353,7 +353,7 @@ function renderGrid(){
   FACTS.forEach(f=>{
     const m = Math.min(DB.mastery[f.key]||0,3);
     const d = document.createElement('div');
-    d.className='fact'+(m>=3?' mastered':'');
+    d.className='fact hide-ans'+(m>=3?' mastered':'');
     d.innerHTML = `${f.a} × ${f.b} = <span class="ans">${f.r}</span><div class="dots">${'🟢'.repeat(m)}${'⚪'.repeat(3-m)}</div>`;
     d.onclick=()=>d.classList.toggle('hide-ans');
     grid.appendChild(d);

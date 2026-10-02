@@ -75,6 +75,7 @@ function carregar(preDB) {
     const dom = carregar();
     const d = dom.window.document;
     ok(d.querySelectorAll('.fact').length === 36, 'tabela renderiza 36 cards');
+    ok(d.querySelectorAll('.fact.hide-ans').length === 36, 'respostas começam escondidas (padrão da casa)');
     d.querySelector('nav button[data-tab="quiz"]').click();
     ok(d.getElementById('quiz').classList.contains('show'), 'aba Quiz abre');
     ok(!d.getElementById('tabela').classList.contains('show'), 'aba anterior fecha');
