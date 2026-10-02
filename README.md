@@ -27,15 +27,19 @@ O app marca **🔥 dias seguidos** — estudou hoje, a chama continua. Sumiu dia
 
 ## 🧪 Qualidade
 
-- **48 testes de comportamento** (jsdom, `npm test`): streak diária (ontem/hoje/sumiu), quiz completo com domínio e zerada no erro, flashcards com peso, desafio com recorde — testando a lógica real do app;
+- **55 testes de comportamento** (jsdom, `npm test`): streak diária (ontem/hoje/sumiu), quiz completo com domínio e zerada no erro, flashcards com peso, desafio com recorde — testando a lógica real do app;
 - **CI no GitHub Actions** a cada push;
 - **Zero dependência em runtime**: um único `index.html` offline.
+
+## 🌗 Tema claro e escuro
+
+O caderno tem **modo escuro próprio** — "caderno à luz de lampião": papel azul-noite, quadriculado fantasma, margem vermelha acesa. O 🌙 fica no canto do cabeçalho; a primeira visita segue o teu sistema e a escolha fica guardada (sem flash ao carregar).
 
 ## 📦 Rodar local
 
 ```
 npm install   # só pra suíte
-npm test      # 48 testes
+npm test      # 55 testes
 npm run serve # http://localhost:8080
 ```
 

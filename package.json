@@ -1,6 +1,6 @@
 {
   "name": "tabuada-diaria",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Caderno de tabuada diário — single-file, offline, com quiz, flashcards, desafio 60s e plano de 7 dias",
   "main": "index.html",
   "scripts": {

@@ -9,8 +9,8 @@ const fs = require('fs');
 const path = require('path');
 
 const html = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');
-const script = html.match(/<script>([\s\S]*?)<\/script>/)[1];
-const htmlSemScript = html.replace(/<script>[\s\S]*?<\/script>/, '');
+const script = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(m => m[1]).join('\n;\n');
+const htmlSemScript = html.replace(/<script>[\s\S]*?<\/script>/g, '');
 
 let pass = 0, fail = 0;
 function ok(cond, nome) {
@@ -20,9 +20,10 @@ function ok(cond, nome) {
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 // carrega o app num jsdom com localStorage já populado (opcional)
-function carregar(preDB) {
+function carregar(preDB, temaSeed) {
   const dom = new JSDOM(htmlSemScript, { url: 'http://localhost/', runScripts: 'outside-only' });
   if (preDB) dom.window.localStorage.setItem('tabuada', JSON.stringify(preDB));
+  if (temaSeed) dom.window.localStorage.setItem('tabuada-tema', temaSeed);
   const probe = `
     ;globalThis.__T = {
       FACTS, pickFlash, masteredCount, startQuiz, startDes,
@@ -198,6 +199,21 @@ function carregar(preDB) {
     ok(db.bestDes === 5, 'bestDes persiste no storage');
   }
 
+  console.log('— MODO ESCURO 🌙 —');
+  {
+    const dom = carregar();
+    const w = dom.window, d = w.document;
+    const tema0 = d.documentElement.dataset.tema;
+    ok(tema0 === 'claro' || tema0 === 'escuro', 'tema definido antes do primeiro pixel (script no head)');
+    d.getElementById('btnTema').click();
+    const tema1 = d.documentElement.dataset.tema;
+    ok(tema1 !== tema0, 'botão alterna o tema');
+    ok(w.localStorage.getItem('tabuada-tema') === tema1, 'escolha persiste no storage');
+    ok(d.getElementById('btnTema').textContent.length >= 1, 'ícone 🌙/☀️ acompanha o tema');
+    const dom2 = carregar(null, 'escuro');
+    ok(dom2.window.document.documentElement.dataset.tema === 'escuro', 'visita seguinte respeita a escolha salva (escuro volta escuro)');
+  }
+
   console.log('— HIGIENE DA CASA —');
   {
     ok(/prefers-reduced-motion/.test(html), 'respeita prefers-reduced-motion');
@@ -207,6 +223,7 @@ function carregar(preDB) {
     ok(/Caveat/.test(html) && /Atkinson\+Hyperlegible/.test(html), 'tipografia com identidade (Caveat + Atkinson)');
     ok(!/(ghp_[A-Za-z0-9]{20,}|sk-[A-Za-z0-9]{20,}|AIzaSy)/.test(html), 'zero segredo no arquivo');
     ok(fs.existsSync(path.join(__dirname, '..', 'LICENSE')), 'LICENSE MIT presente');
+    ok(/html\[data-tema="escuro"\]\{/.test(html) && /--quadriculado:rgba\(154,170,255/.test(html), 'modo escuro é o mesmo caderno à noite (vars, não slate genérico)');
   }
 
   console.log(`\n═══ RESULTADO: ${pass} ✓ · ${fail} ✗ ═══`);
