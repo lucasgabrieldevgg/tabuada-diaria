@@ -1,50 +1,52 @@
-# 🧮 Tabuada Diária
+[🇧🇷 Português](README.pt-BR.md)
 
-[![testes](https://github.com/lucasgabrieldevgg/tabuada-diaria/actions/workflows/ci.yml/badge.svg)](https://github.com/lucasgabrieldevgg/tabuada-diaria/actions/workflows/ci.yml)
+# 🧮 Daily Times Tables
 
-**## 🌐 Teste agora
-**https://lucasgabrieldevgg.github.io/tabuada-diaria/** — grátis, sem conta, funciona offline. Tudo fica salvo no teu navegador.**
+[![tests](https://github.com/lucasgabrieldevgg/tabuada-diaria/actions/workflows/ci.yml/badge.svg)](https://github.com/lucasgabrieldevgg/tabuada-diaria/actions/workflows/ci.yml)
 
-> Um caderno de matemática que estuda com você todo dia: as 36 multiplicações (do 2×2 ao 9×9), flashcards que insistem nas que você erra, quiz com sistema de domínio ⭐, desafio contra o relógio e um plano de 7 dias — com os macetes de professora marcados a amarelo.
+## 🌐 Try it now
+**https://lucasgabrieldevgg.github.io/tabuada-diaria/** — free, no account, works offline. Everything is saved in your browser.
 
-## 📚 Como funciona
+> A math notebook that studies with you every day: the 36 multiplications (from 2×2 to 9×9), flashcards that insist on the ones you miss, a quiz with a ⭐ mastery system, a beat-the-clock challenge and a 7-day plan — with teacher's tricks highlighted in yellow.
 
-**📋 Tabela** — as 36 contas em cards; clique para esconder as respostas e se testar. As bolinhas 🟢 mostram seu domínio.
+## 📚 How it works
 
-**🃏 Flashcards** — veja a conta, pense, vire o cartão. **Errar não é problema**: as contas que você erra voltam mais vezes (peso ×3).
+**📋 Table** — all 36 problems as cards; click to hide the answers and test yourself. The 🟢 dots show your mastery.
 
-**🎯 Quiz** — 10 perguntas, 4 alternativas. Acertar 3 vezes a mesma conta ela fica **⭐ dominada**; errar zera o progresso dela. No final, a lista do que revisar.
+**🃏 Flashcards** — see the problem, think, flip the card. **Getting it wrong is no big deal**: problems you miss come back more often (×3 weight).
 
-**⏱️ Desafio** — 60 segundos, digite e Enter. Recorde seu fica salvo pra bater amanhã.
+**🎯 Quiz** — 10 questions, 4 options. Get the same problem right 3 times and it becomes **⭐ mastered**; miss it and its progress resets. At the end, a review list.
 
-**💡 Dicas** — os macetes clássicos: truque dos dedos do 9, "5,6,7,8" do 7×8=56, dobrar do 4 e do 8…
+**⏱️ Challenge** — 60 seconds, type and Enter. Your high score is saved so you can beat it tomorrow.
 
-**📅 Plano de 7 dias** — do 2×2 ao automático em uma semana, ~10 min por dia.
+**💡 Tips** — the classic tricks: the 9s finger trick, "5,6,7,8" for 7×8=56, doubling for 4 and 8…
 
-## 🔥 Constância
+**📅 7-day plan** — from 2×2 to automatic in one week, ~10 min a day.
 
-O app marca **🔥 dias seguidos** — estudou hoje, a chama continua. Sumiu dias, ela reinicia em 1 (sem drama: o recorde de quiz e desafio nunca se perde).
+## 🔥 Consistency
 
-## 🧪 Qualidade
+The app tracks a **🔥 day streak** — study today and the flame keeps burning. Miss days and it restarts at 1 (no drama: quiz and challenge high scores are never lost).
 
-- **55 testes de comportamento** (jsdom, `npm test`): streak diária (ontem/hoje/sumiu), quiz completo com domínio e zerada no erro, flashcards com peso, desafio com recorde — testando a lógica real do app;
-- **CI no GitHub Actions** a cada push;
-- **Zero dependência em runtime**: um único `index.html` offline.
+## 🧪 Quality
 
-## 🌗 Tema claro e escuro
+- **55 behavior tests** (jsdom, `npm test`): daily streak (yesterday/today/missed), full quiz with mastery and reset-on-miss, weighted flashcards, timed challenge with high score — testing the app's real logic;
+- **CI on GitHub Actions** on every push;
+- **Zero runtime dependencies**: a single offline `index.html`.
 
-O caderno tem **modo escuro próprio** — "caderno à luz de lampião": papel azul-noite, quadriculado fantasma, margem vermelha acesa. O 🌙 fica no canto do cabeçalho; a primeira visita segue o teu sistema e a escolha fica guardada (sem flash ao carregar).
+## 🌗 Light and dark themes
 
-## 📦 Rodar local
+The notebook has its **own dark mode** — "notebook by lamplight": night-blue paper, ghost grid, glowing red margin. The 🌙 sits in the header corner; first visit follows your system and the choice is remembered (no flash on load).
+
+## 📦 Run locally
 
 ```
-npm install   # só pra suíte
-npm test      # 55 testes
+npm install   # only for the test suite
+npm test      # 55 tests
 npm run serve # http://localhost:8080
 ```
 
-Ou simplesmente abra `index.html` no navegador.
+Or just open `index.html` in the browser.
 
-## 📄 Licença
+## 📄 License
 
-MIT — veja [LICENSE](LICENSE).
+MIT — see [LICENSE](LICENSE).
