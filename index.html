@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tabuada Diária — Estude e Domine a Multiplicação</title>
+<meta name="description" content="Caderno de tabuada gratuito: flashcards, quiz e desafio contra o relógio para dominar a multiplicação de 2×2 a 9×9 estudando poucos minutos por dia.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧮</text></svg>">
 <script>try{var _t=localStorage.getItem('tabuada-tema');if(_t!=='claro'&&_t!=='escuro')_t=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'escuro':'claro';document.documentElement.dataset.tema=_t}catch(e){document.documentElement.dataset.tema='claro'}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,6 +18,8 @@
     --tinta:#1e40af; --tinta-forte:#1b3a9e; --tinta-suave:rgba(30,64,175,.16);
     --professor:#dc2626; --corretor:#15803d; --marcatexto:#fef08a;
     --cinza:#6b7280; --sombra:rgba(30,64,175,.10); --navbg:rgba(247,245,238,.96); --trilha:#e7e5e0; --tx-tip:#374151;
+    --papel3:#ffffff; --margem:rgba(220,38,38,.30); --warn:#d97706;
+    --ok:var(--corretor); --bad:var(--professor); --muted:var(--cinza);
   }
   /* ===== MODO ESCURO — caderno à luz de lampião (mesma identidade, tinta clara) ===== */
   html[data-tema="escuro"]{
@@ -25,11 +28,21 @@
     --professor:#f87171; --corretor:#4ade80; --marcatexto:#fde047;
     --cinza:#9aa4bd; --sombra:rgba(0,0,0,.45);
     --navbg:rgba(22,25,37,.96); --trilha:#2a2f42; --tx-tip:#c3cad9;
+    --papel3:#262b3f; --margem:rgba(248,113,113,.32); --warn:#fbbf24;
   }
   html[data-tema="escuro"] .face.back{color:#052e16}
   html[data-tema="escuro"] .quiz-opts button.right{background:#14532d;color:#dcfce7;border-color:#22c55e}
   html[data-tema="escuro"] .quiz-opts button.wrong{background:#7f1d1d;color:#fecaca;border-color:#ef4444}
   body{transition:background-color .25s,color .25s}
+  /* ===== PISO DE ACABAMENTO (superfícies do navegador temáticas) ===== */
+  ::selection{background:var(--marcatexto); color:#713f12}
+  html{scrollbar-color:var(--tinta-suave) transparent; scrollbar-width:thin}
+  ::-webkit-scrollbar{width:11px}
+  ::-webkit-scrollbar-track{background:transparent}
+  ::-webkit-scrollbar-thumb{background:var(--tinta-suave); border-radius:99px; border:3px solid var(--papel)}
+  :focus-visible{outline:2px dashed var(--tinta); outline-offset:3px}
+  input[type=number]{font-variant-numeric:tabular-nums}
+  input[type=number]::placeholder{color:var(--cinza); opacity:.7}
   *{margin:0;padding:0;box-sizing:border-box;font-family:'Atkinson Hyperlegible','Segoe UI',system-ui,sans-serif}
   html{scroll-behavior:smooth}
   body{
@@ -82,7 +95,7 @@
     background:var(--papel2); color:var(--tinta); border:1.5px solid var(--tinta-suave); border-bottom:none;
     border-radius:10px 10px 0 0; padding:9px 16px 7px; cursor:pointer; font-size:.9rem; font-weight:700; transition:.15s;
   }
-  nav button:hover{border-color:var(--tinta); background:#fff}
+  nav button:hover{border-color:var(--tinta); background:var(--papel3)}
   nav button.active{background:var(--tinta); color:var(--papel2); border-color:var(--tinta)}
 
   main{max-width:900px;margin:0 auto;padding:26px 16px 60px}
@@ -160,7 +173,7 @@
 
   /* ===== Dicas ===== */
   .tip{
-    background:var(--papel2);border:1.5px solid var(--tinta-suave);border-left:5px solid var(--tinta);
+    background:var(--papel2);border:1.5px solid var(--tinta-suave);border-left:2px solid var(--margem);
     border-radius:6px;padding:15px 18px;margin-bottom:12px; box-shadow:2px 2px 0 var(--sombra);
   }
   .tip h3{font-family:'Caveat',cursive;color:var(--tinta);font-size:1.5rem;margin-bottom:5px;font-weight:700}
@@ -176,7 +189,7 @@
   .day-card p{font-size:.9rem;color:var(--cinza)}
   .day-card strong{color:var(--tinta-forte)}
 
-  footer{text-align:center;color:#9ca3af;font-size:.82rem;padding:22px;font-style:italic}
+  footer{text-align:center;color:var(--cinza);font-size:.82rem;padding:22px;font-style:italic}
 
   @media(max-width:480px){
     .quiz-q{font-size:2.2rem}

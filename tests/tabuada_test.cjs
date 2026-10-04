@@ -226,6 +226,21 @@ function carregar(preDB, temaSeed) {
     ok(/html\[data-tema="escuro"\]\{/.test(html) && /--quadriculado:rgba\(154,170,255/.test(html), 'modo escuro é o mesmo caderno à noite (vars, não slate genérico)');
   }
 
+  console.log('— PISO DE ACABAMENTO (craft floor) —');
+  {
+    ok(/--ok:var\(--corretor\)/.test(html) && /--bad:var\(--professor\)/.test(html) && /--warn:#d97706/.test(html), 'vars de feedback (--ok/--bad/--muted/--warn) definidas NA identidade');
+    ok(/--warn:#fbbf24/.test(html), '--warn tem versão própria no lampião');
+    ok(/background:var\(--papel3\)/.test(html) && /--papel3:#ffffff/.test(html) && /--papel3:#262b3f/.test(html), 'hover da nav usa --papel3 (zero flash branco no escuro)');
+    ok(!/#9ca3af/.test(html), 'footer sem cinza hardcoded (usa --cinza da identidade)');
+    ok(/::selection\{background:var\(--marcatexto\)/.test(html), 'seleção de texto = marca-texto amarelo (superfície do navegador temática)');
+    ok(/:focus-visible\{outline:2px dashed var\(--tinta\)/.test(html), 'foco visível com lápis (outline tracejado da tinta)');
+    ok(/scrollbar-color:var\(--tinta-suave\)/.test(html) && /::-webkit-scrollbar-thumb\{background:var\(--tinta-suave\)/.test(html), 'scrollbar temático (Firefox + WebKit)');
+    ok(/font-variant-numeric:tabular-nums/.test(html), 'numerais tabulares no input do desafio');
+    ok(/--margem:rgba\(220,38,38,\.30\)/.test(html) && /--margem:rgba\(248,113,113,\.32\)/.test(html), 'dicas com margem da professora nos 2 temas (--margem)');
+    ok(/border-left:2px solid var\(--margem\)/.test(html), 'dica NÃO usa border-left azul de 5px (callout genérico banido)');
+    ok(/<meta name="description"/.test(html), 'meta description presente');
+  }
+
   console.log(`\n═══ RESULTADO: ${pass} ✓ · ${fail} ✗ ═══`);
   process.exit(fail ? 1 : 0);
 })().catch(e => { console.error('CRASH:', e); process.exit(1); });
